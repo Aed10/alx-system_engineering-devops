@@ -29,3 +29,5 @@
 
 **12-file_type :** This script prints the the type of the file iamafile.
 
+**13-symbolik_link:** This script create a symbolic link to /bin/ls called __ls__.
+
