@@ -8,3 +8,9 @@
 **3-3-listfiles :** This script display current directory in a long format.
 
 **4-listmorefiles :** This script display contents of a current directory, including hidden files, in long format.
+
+**5-listfilesdigitonly :** This script display directory contents:
+				- Long format
+				- with user and group IDs
+				- And hidden files
+
