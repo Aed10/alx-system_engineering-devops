@@ -6,3 +6,5 @@
 **2-bring_me_home :** This script chnages the worki,g directory to the user's home directory.
 
 **3-3-listfiles :** This script display current directory in a long format.
+
+**4-listmorefiles :** This script display contents of a current directory, including hidden files, in long format.
