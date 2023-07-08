@@ -1,0 +1,3 @@
+#!/usr/bin/bash env
+#shows the IPs attached to your machine
+ip addr show
