@@ -1,27 +1,21 @@
 #!/usr/bin/env bash
-# Write a Bash script that displays the time for 12 hours and 59 minutes:
+# Wrte a Bash scrpt that dsplays the tme for 12 hours and 59 mnutes:
 
-# display hours from 0 to 12
-# display minutes from 1 to 59
-# Requirements:
+# dsplay hours from 0 to 12
+# dsplay mnutes from 1 to 59
+# Requrements:
 
-# You must use the while loop (for and until are forbidden)
+# You must use the whle loop (for and untl are forbdden)
 
-hour=0
-echo "Hour: $hour"
-while [ $hour -le 11 ]
+Hour=0
+while [ $Hour -le 12 ]
 do
+    echo "Hour: $Hour"
     minutes=1
-    while [ $minutes -le 60 ]
-        do
-            if [ $minutes = 60 ]
-                then
-                    ((hour++))
-                    echo "Hour: $hour"
-                    
-            else
-                echo "$minutes"
-            fi
-            ((minutes++))
-        done
+    while [ $minutes -le 59 ]
+    do
+        echo "$minutes"
+        ((minutes++))
+    done
+    ((Hour++))
 done
