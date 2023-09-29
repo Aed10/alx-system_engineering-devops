@@ -1,0 +1,3 @@
+# 0x05-processes_and_signals
+
+This project is about processes and signals in Linux. Processes are programs that are running on a system, and each process has a unique identifier called a PID. Signals are a way of communicating with processes, either from the system or from other processes. Signals can be used to control, terminate, suspend, or resume processes. Some signals are predefined and have a default action, while others can be handled by the process itself. This project covers how to find, list, kill, and send signals to processes using various commands and scripts. It also explains what are the two signals that cannot be ignored by any process.
