@@ -1,17 +1,9 @@
 #!/usr/bin/env bash
 # Bash script that displays the content of the file /etc/passwd.
-# Your script should only display:
-
-# username
-# user id
-# Home directory path for the user
-# Requirements:
-
-# You must use the while loop (for and until are forbidden)
-# shellcheck disable=all
+#   Only displays the username, user id, and user home directory path.
 file="/etc/passwd"
 
-while IFS=: read -r username x uid gid gecos home shell
+while IFS=: read -r username _ uid _ _ home _
 do
     echo "$username:$uid:$home"
 
