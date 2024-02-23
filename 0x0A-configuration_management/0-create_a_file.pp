@@ -5,4 +5,5 @@ ensure    => 'present',
   owner   => 'www-data',
   group   => 'www-data',
   path    => '/tmp/school',
+  mode    => '0744',
 }
