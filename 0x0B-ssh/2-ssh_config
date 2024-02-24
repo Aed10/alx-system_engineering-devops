@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# # This file configures SSH client options and keys for connecting to remote servers
+
+Host your_server_hostname_or_IP
+    IdentityFile ~/.ssh/school 
+    PasswordAuthentication no
+    
