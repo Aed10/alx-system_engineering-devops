@@ -1,4 +1,4 @@
-#!/usr/bin/env bahs
+#!/usr/bin/env bash
 # Set up the client SHH configuration file using Puppet
 include sdlib
 
