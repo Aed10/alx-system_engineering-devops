@@ -15,3 +15,4 @@ redirect_me="http {
     }
 }"
 sed -i "s/server_name  localhost;/server_name  localhost;\n$redirect_me/g" /etc/nginx/sites-available/default
+service nginx restart
