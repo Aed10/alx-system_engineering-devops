@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Create the custom 404 page in /var/www/html/404.html on your web-01 server
+echo "Ceci n'est pas une page." > /var/www/html/404.html
+
+# Restart your Nginx server
+service nginx restart
