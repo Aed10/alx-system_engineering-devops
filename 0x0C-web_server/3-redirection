@@ -3,24 +3,15 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 
-# Configure redirection
-sudo bash -c 'cat > /etc/nginx/sites-available/redirect_me <<EOF
-server {
-    listen 80;
-    server_name _;
+ufw allow 'Nginx HTTP'
 
-    location /redirect_me {
+redirect_me="http {
+    server {
+        listen 80;
+        server_name  localhost;
+        location /redirect_me {
         return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+
     }
-
-    location / {
-        return 404;
-    }
-}
-EOF'
-
-# Enable the site
-sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
-
-# Restart Nginx
-sudo systemctl restart nginx
+}"
+sed -i "s/server_name  localhost;/server_name  localhost;\n$redirect_me/g" /etc/nginx/sites-available/default
