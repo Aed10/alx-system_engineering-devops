@@ -13,4 +13,4 @@ redirect="http {
 		}
 	}"
 sed -i "s/http {/$redirect/" /etc/nginx/nginx.conf
-service nginx start
+sudo service nginx restart

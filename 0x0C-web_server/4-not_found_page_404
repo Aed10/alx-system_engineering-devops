@@ -3,4 +3,4 @@
 echo "Ceci n'est pas une page." > /var/www/html/404.html
 
 # Restart your Nginx server
-service nginx restart
+sudo service nginx restart
