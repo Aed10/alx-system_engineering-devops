@@ -15,7 +15,9 @@ echo "server {
     server_name _;
     error_page 404 /404.html;
 
-
+    location / {
+        try_files $uri $uri/ =404;
+    }
     location /redirect_me {
         return 301 https://www.youtube.com/watch?v=9t9Mp0BGnyI;
 
