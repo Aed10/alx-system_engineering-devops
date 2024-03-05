@@ -7,11 +7,11 @@ sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.html
 echo "Ceci n'est pas une page." > /var/www/html/404.html
 echo "server {
-    listen 80;
-    listen [::]:80;
-    root /var/www/html;
+    listen 80 default_server;
+    listen [::]:80 default_server;
     add_header X-Served-By $HOSTNAME;
-    index index.html index.htm index.nginx-debian.html;
+    root /var/www/html;
+    index index.html index.htm;
     server_name _;
     error_page 404 /404.html;
     location /404 {
