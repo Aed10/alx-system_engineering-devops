@@ -3,10 +3,11 @@
 # and sets up a custom 404 page and a custom header
 sudo apt-get update
 sudo apt-get -y install nginx
-ufw allow 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.html
 echo "Ceci n'est pas une page." > /var/www/html/404.html
-service nginx start
+# Set up custom header
+sudo sed -i 's/# server_tokens off;/server_tokens off;/' /etc/nginx/nginx.conf
 echo "server {
     listen 80;
     root /var/www/html;
