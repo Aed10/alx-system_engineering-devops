@@ -6,12 +6,11 @@ echo "
 frontend http_front
     bind *:80
     timeout client 50000ms
-    stats uri /haproxy?stats
     default_backend http_back
 backend http_back
     timeout connect 5000ms
     timeout server 50000ms
-    balance roundrobin
+    mode http
     server server1  35.174.184.151
     server server2  54.157.180.166" > test.conf
 sudo haproxy -f test.conf
