@@ -3,16 +3,32 @@
 sudo apt-get update
 sudo apt-get -y install haproxy
 echo "
+
 global
-    log /dev/log local0  # Log to syslog
-frontend http_front
+    log 127.0.0.1 local0 notice
+    maxconn 2000
+    user haproxy
+    group haproxy
+
+defaults
+    log     global
+    mode    http
+    option  httplog
+    option  dontlognull
+    retries 3
+    option redispatch
+    timeout connect  5000
+    timeout client  10000
+    timeout server  10000
+
+listen stats    
     bind *:80
-    timeout client 50000ms
-    default_backend http_back
-backend http_back
-    timeout connect 5000ms
-    timeout server 50000ms
     mode http
+    stats enable
+    stats uri /haproxy?stats
+    balance roundrobin
+    option httpclose
+    option forwardfor
     server 267497-web-01    35.174.184.151
     server 267497-web-02    54.157.180.166" > test.conf
 sudo haproxy -f test.conf
