@@ -3,6 +3,8 @@
 sudo apt-get update
 sudo apt-get -y install haproxy
 echo "
+global
+    log /dev/log local0  # Log to syslog
 frontend http_front
     bind *:80
     timeout client 50000ms
