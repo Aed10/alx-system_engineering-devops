@@ -11,7 +11,7 @@ exec { 'apt-update':
 package { 'nginx':
   ensure   => installed,
   provider => 'apt',
-  before   => File['/etc/nginx/nginx.conf'],
+  before   => File['/etc/nginx/sites-available/default'],
 }
 
 # Add custom HTTP header to Nginx configuration
@@ -20,7 +20,7 @@ file_line { 'add_custom_header':
   line   => "add_header X-Served-By ${hostname};",
   match  => '^http {',
   after  => '^http {',
-  path   => '/etc/nginx/nginx.conf',
+  path   => '/etc/nginx/sites-available/default',
 }
 
 file { '/var/www/html/index.html':
