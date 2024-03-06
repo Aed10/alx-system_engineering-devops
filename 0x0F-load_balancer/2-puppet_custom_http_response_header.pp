@@ -11,6 +11,7 @@ exec { 'apt-update':
 package { 'nginx':
   ensure   => installed,
   provider => 'apt',
+  before   => File['/etc/nginx/nginx.conf'],
 }
 
 # Add custom HTTP header to Nginx configuration
@@ -20,6 +21,10 @@ file_line { 'add_custom_header':
   match  => '^http {',
   after  => '^http {',
   path   => '/etc/nginx/nginx.conf',
+}
+
+file { '/var/www/html/index.html':
+  content => 'Hello World!',
 }
 
 exec { 'restart_nginx':
