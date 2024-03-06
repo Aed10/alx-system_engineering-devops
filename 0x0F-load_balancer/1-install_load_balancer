@@ -5,13 +5,12 @@ sudo apt-get -y install haproxy
 echo "
 frontend http_front
     bind *:80
-    timeout client 50000ms
-    default_backend http_back
-backend http_back
-    timeout connect 5000ms
-    timeout server 50000ms
     mode http
-    server server1  35.174.184.151
-    server server2  54.157.180.166" > test.conf
-    echo "ENABLED=1" >> test.conf
+    default_backend http_back
+
+backend http_back
+    balance roundrobin
+    server   267497-web-01  35.174.184.151 check
+    server   267497-web-02  54.157.180.166 check
+ENABLED=1" > test.conf
 sudo haproxy -f test.conf
