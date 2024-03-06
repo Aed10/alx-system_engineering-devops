@@ -28,6 +28,6 @@ file { '/var/www/html/index.html':
 }
 
 exec { 'restart_nginx':
-  command     => 'systemctl restart nginx',
-  refreshonly => true,
+  command  => 'service nginx restart',
+  provider => 'shell',
 }
