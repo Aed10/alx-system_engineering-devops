@@ -34,11 +34,16 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
+
 frontend http_front
     bind *:80
+    redirect scheme https code 301 if !{ ssl_fc }
+    http-response add-header Connection close
+    default_backend http_back
+
+frontend https_front
     bind *:443 ssl crt /etc/letsencrypt/live/www.aiinnovatorzone.tech/combined.pem
     mode http
-    redirect scheme https if !{ ssl_fc }
     default_backend http_back
 
 backend http_back
