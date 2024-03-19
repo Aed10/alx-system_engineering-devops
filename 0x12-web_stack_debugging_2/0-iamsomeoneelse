@@ -7,5 +7,5 @@ if [ $# -ne 1 ]; then
 fi
 
 desired_user=$1
-sudo useradd -m "$desired_user"
 su -c whoami "$desired_user"
+
