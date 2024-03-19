@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script accept an argument and create a user named after the argument
+
+if [ $# -ne 1 ]; then
+  echo "Usage: ./0-iamsomeoneelse <desired_username>"
+  exit 1
+fi
+
+desired_user=$1
+sudo useradd -m "$desired_user"
+su -c whoami "$desired_user"
