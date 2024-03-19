@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# This script accept an argument and create a user named after the argument
+# This script accept an argument and Runs ``whoami`` under the user passed as argument
 desired_user=$1
-su -c whoami "$desired_user"
+sudo -u "$desired_user" whoami
+
 
