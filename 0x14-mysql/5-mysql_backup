@@ -6,4 +6,4 @@ MYSQL_ROOT_PASSWORD=$1
 FILENAME=$(date +%d-%m-%Y).tar.gz
 
 # Create a MySQL dump of all databases and compress it
-mysqldump -u root -p"$MYSQL_ROOT_PASSWORD" --all-databases > backup.sql && tar -czf "$FILENAME" backup.sql
+mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" --all-databases > backup.sql && tar -czf "$FILENAME" backup.sql
