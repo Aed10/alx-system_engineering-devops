@@ -14,13 +14,3 @@ FILENAME=$(date +%d-%m-%Y).tar.gz
 
 # Create a MySQL dump of all databases and compress it
 mysqldump -u root -p"$MYSQL_ROOT_PASSWORD" --all-databases > backup.sql && tar -czf "$FILENAME" backup.sql
-
-# Check if the MySQL dump was successful and the file was compressed
-if [ -f "$FILENAME" ]; then
-    echo "Backup and compression successful. File created: $FILENAME"
-else
-    echo "Backup failed."
-fi
-
-# Clean up the SQL dump file
-rm -f backup.sql
