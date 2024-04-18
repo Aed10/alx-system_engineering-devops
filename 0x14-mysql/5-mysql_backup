@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# This script creates a backup of all MySQL databases on the system.
+# It requires one argument: the root password for MySQL.
+
 # Assign the provided password to a variable
 MYSQL_ROOT_PASSWORD=$1
 
