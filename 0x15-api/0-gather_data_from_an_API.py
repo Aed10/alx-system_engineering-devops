@@ -15,8 +15,6 @@ if __name__ == "__main__":
     completed = [task for task in data if task.get("completed")]
     print(
         f"Employee {name} is done with tasks({len(completed)}/{total_tasks})"
-        if name
-        else "No employee found for the ID"
     )
     for task in completed:
         print("\t {}".format(task.get("title")))
