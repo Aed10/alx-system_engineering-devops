@@ -6,10 +6,11 @@ import sys
 
 if __name__ == "__main__":
     id = sys.argv[1]
-    url = "https://jsonplaceholder.typicode.com"
-    response = requests.get(f"{url}/users/{id}").json()
+    users = "https://jsonplaceholder.typicode.com/users"
+    response = requests.get(f"{users}/{id}").json()
+    todos = f"{users}/{id}/todos"
     name = response.get("name")
-    data = requests.get(f"{url}/todos?userId={id}").json()
+    data = requests.get(todos).json()
 
     total_tasks = len(data)
     completed = [task for task in data if task.get("completed")]
